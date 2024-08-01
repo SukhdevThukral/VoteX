@@ -1,0 +1,120 @@
+/* General Styles */
+body {
+    background: linear-gradient(135deg, #F47216 30%, #fff 40%, #9c9999 55%, #138808 70%);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+body::before {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.1) 70%, rgba(0, 0, 0, 0.3));
+    filter: blur(15px); /* Soft blur effect */
+    mix-blend-mode: overlay; /* Blends the gradient with the background */
+}
+
+body::after {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 80%);
+    filter: blur(15px); /* Additional blur for the black effect at the top */
+    mask-image: radial-gradient(circle, transparent, black 10%, transparent);
+    mask-size: cover;
+    mask-repeat: no-repeat;
+}
+
+/* Center Form Styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    padding: 20px; /* Adds padding around the container */
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.2); /* Reduced transparency */
+    border: none;
+    margin: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lighter shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 2;
+    width: 100%; /* Ensures card takes full width of the container */
+    max-width: 800px; /* Increased max-width for larger card */
+    padding: 20px; /* Adds padding inside the card */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Lighter shadow on hover */
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    color: #fff;
+    font-size: 1.5rem; /* Increased font size */
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Softer shadow */
+}
+
+/* Form Styles */
+.phase-form.active {
+    display: block;
+}
+
+.phase-form {
+    display: none;
+}
+
+/* Feedback Messages */
+.feedback {
+    font-size: 14px;
+}
+
+.invalid-feedback {
+    color: red;
+}
+
+.valid-feedback {
+    color: green;
+}
+
+/* Success Message */
+#successMessage {
+    display: none;
+}
+
+#successMessage.active {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.25rem; /* Adjusted for smaller screens */
+    }
+}

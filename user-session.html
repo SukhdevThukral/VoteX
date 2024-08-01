@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lok Sabha 2024 Elections</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="user-session_style.css" rel="stylesheet">
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.js"></script>
+
+    <!-- Include the custom Firebase setup script -->
+    <script src="user-session.js" defer></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">VoteX</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id="welcome-message" href="#">Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-danger" id="logout-btn">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center mt-5">
+        <h1>Lok Sabha 2024 Elections</h1>
+        <div class="row mt-4">
+            <div class="col-md-3 col-6">
+                <div class="card">
+                    <img src="bjp.png" class="card-img-top" alt="BJP">
+                    <div class="card-body">
+                        <h5 class="card-title">BJP</h5>
+                        <button class="btn btn-primary vote-btn" data-party="BJP">Vote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card">
+                    <img src="inc.png" class="card-img-top" alt="INC">
+                    <div class="card-body">
+                        <h5 class="card-title">INC</h5>
+                        <button class="btn btn-primary vote-btn" data-party="INC">Vote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card">
+                    <img src="aitc.png" class="card-img-top" alt="AITC">
+                    <div class="card-body">
+                        <h5 class="card-title">AITC</h5>
+                        <button class="btn btn-primary vote-btn" data-party="AITC">Vote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card">
+                    <img src="mcpi.png" class="card-img-top" alt="MCPI">
+                    <div class="card-body">
+                        <h5 class="card-title">MCPI</h5>
+                        <button class="btn btn-primary vote-btn" data-party="MCPI">Vote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card">
+                    <img src="mcpi2.png" class="card-img-top" alt="MCPI2">
+                    <div class="card-body">
+                        <h5 class="card-title">MCPI</h5>
+                        <button class="btn btn-primary vote-btn" data-party="MCPI2">Vote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card">
+                    <img src="iuml.png" class="card-img-top" alt="IUML">
+                    <div class="card-body">
+                        <h5 class="card-title">IUML</h5>
+                        <button class="btn btn-primary vote-btn" data-party="IUML">Vote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card">
+                    <img src="shs.png" class="card-img-top" alt="SHS">
+                    <div class="card-body">
+                        <h5 class="card-title">SHS</h5>
+                        <button class="btn btn-primary vote-btn" data-party="SHS">Vote</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="card">
+                    <img src="ncp.png" class="card-img-top" alt="NCP">
+                    <div class="card-body">
+                        <h5 class="card-title">NCP</h5>
+                        <button class="btn btn-primary vote-btn" data-party="NCP">Vote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="user-session.js"></script>
+</body>
+</html>

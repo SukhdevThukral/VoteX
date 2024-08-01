@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Sign-Up</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="sign-upstylee.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title text-center">Sign Up</h2>
+        <!-- Phase 1 Form: Personal Details -->
+        <form id="phase1Form" class="phase-form active">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" required>
+            <div class="feedback" id="nameFeedback"></div>
+          </div>
+          <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" class="form-control" id="age" required>
+            <div class="feedback" id="ageFeedback"></div>
+          </div>
+          <div class="form-group">
+            <label for="sex">Sex:</label>
+            <select class="form-control" id="sex" required>
+              <option value="">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="feedback" id="sexFeedback"></div>
+          </div>
+          <button type="button" class="btn btn-primary btn-block" id="nextBtn1">Next</button>
+        </form>
+
+        <!-- Phase 2 Form: Email and Phone -->
+        <form id="phase2Form" class="phase-form">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" required>
+            <div class="feedback" id="emailFeedback"></div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" class="form-control" id="phone" required>
+            <div class="feedback" id="phoneFeedback"></div>
+          </div>
+          <button type="button" class="btn btn-primary btn-block" id="nextBtn2">Next</button>
+        </form>
+
+        <!-- Phase 3 Form: Aadhaar and Voter ID -->
+        <form id="phase3Form" class="phase-form">
+          <div class="form-group">
+            <label for="aadhaar">Aadhaar Number:</label>
+            <input type="text" class="form-control" id="aadhaar" required>
+            <div class="feedback" id="aadhaarFeedback"></div>
+          </div>
+          <div class="form-group">
+            <label for="voterId">Voter ID:</label>
+            <input type="text" class="form-control" id="voterId" required>
+            <div class="feedback" id="voterIdFeedback"></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="alert alert-success mt-4" role="alert">
+          Submitted successfully!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

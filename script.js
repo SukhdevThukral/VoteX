@@ -1,20 +1,4 @@
-require('dotenv').config();
-
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.FIREBASE_APP_ID,
-  measurementId: process.env.FIREBASE_MEASUREMENT_ID
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const auth = firebase.auth();
-const db = firebase.firestore();
-const storage = firebase.storage();
+import { auth, db, storage, CryptoJS } from './firebaseConfig';
 
 const validAadhaars = ["123456789012", "987654321098"]; // Add more Aadhaar numbers as needed
 const validVoterIds = ["ABC1234567", "XYZ9876543"]; // Add more Voter IDs as needed

@@ -1,7 +1,20 @@
-import { auth, db, storage, CryptoJS } from './firebaseConfig';
+const firebaseConfig = {
+  apiKey: "AIzaSyAnenmOuraTsXxgRczYqOq7rwOeAKHTC1w",
+  authDomain: "online-voting-5e6d4.firebaseapp.com",
+  projectId: "online-voting-5e6d4",
+  storageBucket: "online-voting-5e6d4.appspot.com",
+  messagingSenderId: "389538297568",
+  appId: "1:389538297568:web:0d3a66a9ef09942b50c285",
+  measurementId: "G-DTLH3MC89E"
+};
 
-const validAadhaars = ["123456789012", "987654321098"]; // Add more Aadhaar numbers as needed
-const validVoterIds = ["ABC1234567", "XYZ9876543"]; // Add more Voter IDs as needed
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+const storage = firebase.storage();
+
+const validAadhaars = ["123456789012", "987654321098", "987654321099"]; // Add more Aadhaar numbers as needed
+const validVoterIds = ["ABC1234567", "XYZ9876543", "XYZ9876546"]; // Add more Voter IDs as needed
 
 function hashData(data) {
   return CryptoJS.SHA256(data).toString();

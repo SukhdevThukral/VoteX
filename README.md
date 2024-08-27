@@ -1,6 +1,6 @@
 # **VOTEX (Online Voting System)!**
 
-Welcome to VoteX, a cutting-edge application facilitating secure and anonymous voting for the Lok Sabha Elections. *[Link to the website](https://sukhdevthukral.github.io/online-voting/sign-up.html)*
+Welcome to VoteX, a cutting-edge application facilitating secure and anonymous voting. *[Link to the website](https://sukhdevthukral.github.io/online-voting/sign-up.html)*
 
 ## Overview
 

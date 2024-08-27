@@ -20,7 +20,7 @@ We are actively enhancing the project with plans to transition to a blockchain-b
 
 _**Note:** While blockchain technology is not yet implemented, we are working towards a complete shift to enhance the security and reliability of the voting system._
 
-![Logo](https://s5.ezgif.com/tmp/ezgif-5-93a2627805.png)
+![Logo](https://i.postimg.cc/c1tdQg7W/votex.png)
 
 ## 🛠 Tech Stack
 
@@ -43,9 +43,9 @@ The project is designed for simplicity while offering a smooth and effective use
 
 ## 📷 Screenshots
 
-![App Screenshot](https://s3.ezgif.com/tmp/ezgif-3-388386ad84.png)
-![App Screenshot](https://s5.ezgif.com/tmp/ezgif-5-f630668d25.png)
-![App Screenshot](https://s5.ezgif.com/tmp/ezgif-5-aa926b6c2e.png)
+![App Screenshot](https://i.postimg.cc/MKyxFCrr/Screenshot-2024-08-27-223939.png)
+![App Screenshot](https://i.postimg.cc/PrGTKXKw/Screenshot-2024-08-27-223954.png)
+![App Screenshot](https://i.postimg.cc/Vvt11psv/Screenshot-2024-08-27-224011.png)
 
 ## Roadmap
 

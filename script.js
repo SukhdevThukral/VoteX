@@ -1,16 +1,17 @@
-// Firebase configuration
+require('dotenv').config();
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAnenmOuraTsXxgRczYqOq7rwOeAKHTC1w",
-  authDomain: "online-voting-5e6d4.firebaseapp.com",
-  projectId: "online-voting-5e6d4",
-  storageBucket: "online-voting-5e6d4.appspot.com",
-  messagingSenderId: "389538297568",
-  appId: "1:389538297568:web:0d3a66a9ef09942b50c285",
-  measurementId: "G-DTLH3MC89E"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
 const auth = firebase.auth();
 const db = firebase.firestore();
 const storage = firebase.storage();
@@ -30,7 +31,6 @@ function validateVoterId(voterId) {
   return validVoterIds.includes(voterId);
 }
 
-// Handle navigation between forms
 document.getElementById('nextBtn1').addEventListener('click', () => {
   if (validatePhase1()) {
     document.getElementById('phase1Form').classList.remove('active');

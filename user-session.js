@@ -1,16 +1,17 @@
-// Firebase configuration
+require('dotenv').config();
+
 const firebaseConfig = {
-    apiKey: "AIzaSyAnenmOuraTsXxgRczYqOq7rwOeAKHTC1w",
-    authDomain: "online-voting-5e6d4.firebaseapp.com",
-    projectId: "online-voting-5e6d4",
-    storageBucket: "online-voting-5e6d4.appspot.com",
-    messagingSenderId: "389538297568",
-    appId: "1:389538297568:web:0d3a66a9ef09942b50c285",
-    measurementId: "G-DTLH3MC89E"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
 console.log("Firebase initialized");
 
 // Initialize Firebase Auth and Firestore
@@ -18,7 +19,6 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 const database = firebase.database();
 
-// On window load, check user authentication status
 window.onload = function() {
     auth.onAuthStateChanged(user => {
         if (user) {
@@ -27,19 +27,17 @@ window.onload = function() {
             fetchUserName(user.uid);
             checkIfUserVoted(user.uid);
         } else {
-            // No user is signed in, redirect to login page
             console.log("No user is signed in, redirecting to login page.");
             window.location.href = 'sign-up.html';
         }
     });
 };
 
-// Function to fetch and display the user name from Firestore
 function fetchUserName(userId) {
     const userRef = db.collection('users').doc(userId);
     userRef.get().then((doc) => {
         if (doc.exists) {
-            const userName = doc.data().name || "User"; // Fallback to "User" if name is not set
+            const userName = doc.data().name || "User"; 
             document.getElementById('welcome-message').textContent = `Hi ${userName}! Welcome back`;
         } else {
             console.log("No such document!");
@@ -51,7 +49,6 @@ function fetchUserName(userId) {
     });
 }
 
-// Function to check if the user has already voted
 function checkIfUserVoted(userId) {
     const voteRef = database.ref('votes/' + userId);
     voteRef.once('value').then((snapshot) => {
@@ -59,14 +56,13 @@ function checkIfUserVoted(userId) {
             const voteData = snapshot.val();
             const party = atob(voteData.party); // Decrypt the vote
             alert(`You have already voted for ${party}. You cannot vote again.`);
-            disableVoteButtons(); // Disable voting buttons if user has already voted
+            disableVoteButtons(); 
         }
     }).catch((error) => {
         console.error("Error checking vote status:", error);
     });
 }
 
-// Function to handle vote submission
 function handleVote(party) {
     const userConfirmed = confirm(`Are you sure you want to vote for ${party}?`);
     
@@ -81,7 +77,6 @@ function handleVote(party) {
             const userId = user.uid;
             const voteRef = database.ref('votes/' + userId);
             
-            // Save the encrypted vote to the Realtime Database
             voteRef.set({
                 party: encryptedVote,
                 timestamp: Date.now()
@@ -91,7 +86,7 @@ function handleVote(party) {
                     alert('There was an error saving your vote. Please try again.');
                 } else {
                     alert('Your vote has been successfully submitted!');
-                    disableVoteButtons(); // Disable voting buttons after successful vote
+                    disableVoteButtons(); 
                 }
             });
         } else {
@@ -100,18 +95,16 @@ function handleVote(party) {
     }
 }
 
-// Function to handle user logout
 function handleLogout() {
     auth.signOut().then(() => {
         console.log('User signed out successfully.');
-        window.location.href = 'sign-up.html'; // Redirect to login page
+        window.location.href = 'sign-up.html';
     }).catch((error) => {
         console.error('Error signing out:', error);
         alert('There was an error signing out. Please try again.');
     });
 }
 
-// Function to disable all vote buttons
 function disableVoteButtons() {
     const voteButtons = document.querySelectorAll('.vote-btn');
     voteButtons.forEach(button => {
@@ -119,7 +112,6 @@ function disableVoteButtons() {
     });
 }
 
-// Add event listeners to vote buttons
 document.addEventListener('DOMContentLoaded', () => {
     const voteButtons = document.querySelectorAll('.vote-btn');
     voteButtons.forEach(button => {
@@ -129,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Add event listener to logout button
     const logoutButton = document.getElementById('logout-btn');
     if (logoutButton) {
         logoutButton.addEventListener('click', handleLogout);

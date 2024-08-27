@@ -7,8 +7,7 @@ Welcome to the Online Voting System, a cutting-edge application facilitating sec
 This application securely collects and encrypts Aadhaar and PAN card details, saving them as hashed values in the cloud. Our system ensures the confidentiality and integrity of the voting process using modern web technologies and advanced security measures.
 
 ## ⚠ Caution
-
-Currently, we are using two sample Aadhaar cards (`123456789012` and `987654321098`) and a few PAN card numbers (`ABC1234567` and `XYZ9876543`) for demonstration purposes only. In a production environment, this setup will be replaced by a secure database designed to handle credentials from multiple organizations.
+This project aims to enhance voting transparency by restricting database access to authorized admins with specific credentials. It ensures secure and reliable voting for organizations like corporations, NGOs, schools, and administrative bodies. The project is currently in the prototype/experimental phase. Currently, we are using three dummy Aadhaar cards (`123456789012` , `987654321098` and `987654321099`) and a few dummy PAN card numbers (`ABC1234567` , `XYZ9876543` and `"XYZ9876546`) for demonstration purposes only. In a production environment, this setup will be replaced by a secure database designed to handle credentials from multiple organizations.
 
 Voters use these credentials to cast their votes for various parties. The votes are hashed with SHA-256 and stored on Firebase, ensuring anonymity and preventing any disclosure of individual voting preferences. _Our goal is to develop a system where only the application can use these tamper-proof hashes to count votes for each party accurately._
 

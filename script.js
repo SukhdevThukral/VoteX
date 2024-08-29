@@ -39,9 +39,24 @@ document.getElementById('nextBtn1').addEventListener('click', () => {
 document.getElementById('nextBtn2').addEventListener('click', async () => {
   const isUnique = await validateEmailUniqueness();
   if (isUnique && validatePhase2()) {
-    document.getElementById('phase2Form').classList.remove('active');
-    document.getElementById('phase3Form').classList.add('active');
-    document.getElementById('progressBar').style.width = '100%';
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+
+    // Store temporary data in a separate collection
+    db.collection('tempSignUpData').doc('temp_' + email).set({
+      email: email,
+      phone: phone,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(() => {
+      document.getElementById('phase2Form').classList.remove('active');
+      document.getElementById('phase3Form').classList.add('active');
+      document.getElementById('progressBar').style.width = '100%';
+    })
+    .catch((error) => {
+      console.error('Error storing temporary data:', error);
+      displayError('emailFeedback', 'There was an error processing your request. Please try again.');
+    });
   }
 });
 
@@ -62,6 +77,8 @@ document.getElementById('phase3Form').addEventListener('submit', (e) => {
     auth.createUserWithEmailAndPassword(email, 'defaultPassword')
       .then((userCredential) => {
         const user = userCredential.user;
+
+        // Move data to the main collection and delete the temporary record
         return db.collection('users').doc(user.uid).set({
           email: user.email,
           phone: phone,
@@ -71,6 +88,10 @@ document.getElementById('phase3Form').addEventListener('submit', (e) => {
           age: age,
           sex: sex,
           createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        })
+        .then(() => {
+          // Optionally delete the temporary data
+          return db.collection('tempSignUpData').doc('temp_' + email).delete();
         });
       })
       .then(() => {
@@ -85,7 +106,7 @@ document.getElementById('phase3Form').addEventListener('submit', (e) => {
       })
       .catch((error) => {
         console.error('Error signing up:', error.message);
-        displayError('emailFeedback', error.message);
+        displayError('aadhaarFeedback', error.message);
       });
   }
 });

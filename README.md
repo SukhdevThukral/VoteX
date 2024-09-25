@@ -76,6 +76,11 @@ Hi, I'm Sukhdev Thukral, a high school junior passionate about full stack web de
 
 I'm always on the lookout for new challenges and opportunities to learn. This project reflects my love for technology and practical application. Feel free to reach out if you want to discuss web development, AI, or ML!
 
+## Contributors
+
+@suhangrover
+@SukhdevThukral
+
 ## Feedback
 
 For any feedback or inquiries, please contact me at [sukhdev.steam@gmail.com](mailto:sukhdev.steam@gmail.com).
